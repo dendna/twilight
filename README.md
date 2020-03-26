@@ -53,7 +53,7 @@ func main() {
 	}{		
 		{58.6018, 49.6706, twilight.DuskTypeBorders, 2019, 01, 02},
 		{58.6018, 49.6706, twilight.DuskTypeSimple, 2019, 01, 02},
-    	{58.6018, 49.6706, twilight.DuskTypeMid, 2019, 01, 02},
+		{58.6018, 49.6706, twilight.DuskTypeMid, 2019, 01, 02},
 		{58.6018, 49.6706, twilight.DuskTypeCivil, 2019, 01, 02},
 		{58.6018, 49.6706, twilight.DuskTypeNautical, 2019, 01, 02},
 		{58.6018, 49.6706, twilight.DuskTypeAstronomical, 2019, 01, 02},
@@ -72,8 +72,8 @@ func main() {
         
         // print results
         if err == nil {
-            fmt.Println("Sunrise:", sunrise.Format("15:04:05"))
-	        fmt.Println("Sunset:", sunset.Format("15:04:05"))
+			fmt.Println("Sunrise:", sunrise.Format("15:04:05"))
+			fmt.Println("Sunset:", sunset.Format("15:04:05"))
         } else {
             fmt.Println(err)
 		}	
