@@ -2,14 +2,18 @@
 
 Go package used to calculate sunrise and sunset times based on twilight type, latitude, longitude and date.
 
+------
+
+
+
 ### General
 
 Based on http://www.edwilliams.org/sunrise_sunset_algorithm.htm
 
 ##### Twilight valid types:
 
-- Borders			  = 90.3&deg;
-- Simple				= 90.83&deg;
+- Borders			  = 90&deg;20' (90.3)
+- Simple				= 90&deg;50' (90.83)
 - Mid					 = 93&deg;
 - Civil					= 96&deg;
 - Nautical			 = 102&deg;
@@ -56,9 +60,15 @@ func main() {
 	}
 
 	for i := range input {
-
         // calculate the sunrise and sunset times
-        sunrise, sunset, err := twilight.Calc(input[i].latitude, input[i].longitude, input[i].dusk, input[i].year, input[i].month, input[i].day)
+        sunrise, sunset, err := twilight.Calc(
+            input[i].latitude, 
+            input[i].longitude, 
+            input[i].dusk, 
+            input[i].year, 
+            input[i].month, 
+            input[i].day
+        )
         
         // print results
         if err == nil {
@@ -66,7 +76,37 @@ func main() {
 	        fmt.Println("Sunset:", sunset.Format("15:04:05"))
         } else {
             fmt.Println(err)
-		}
+		}	
+    
+    	// separated calculations
+        
+    	// sunrise, err := twilight.CalcRise(
+        //    input[i].latitude, 
+        //    input[i].longitude, 
+        //    input[i].dusk, 
+        //    input[i].year, 
+        //    input[i].month, 
+        //    input[i].day
+        // )        
+        // if err == nil {
+        //    fmt.Println("Sunrise:", sunrise.Format("15:04:05"))
+        // } else {
+        //    fmt.Println(err)
+		// }
+        
+        // sunset, err := twilight.CalcSet(
+        //    input[i].latitude, 
+        //    input[i].longitude, 
+        //    input[i].dusk, 
+        //    input[i].year, 
+        //    input[i].month, 
+        //    input[i].day
+        // )        
+        // if err == nil {
+        //    fmt.Println("Sunset:", sunset.Format("15:04:05"))
+        // } else {
+        //    fmt.Println(err)
+		// }
 	}
 
 }
