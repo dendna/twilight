@@ -60,52 +60,52 @@ func main() {
 	}
 
 	for i := range input {
-        // calculate the sunrise and sunset times
-        sunrise, sunset, err := twilight.Calc(
-            input[i].latitude, 
-            input[i].longitude, 
-            input[i].dusk, 
-            input[i].year, 
-            input[i].month, 
-            input[i].day
-        )
+		// calculate the sunrise and sunset times
+		sunrise, sunset, err := twilight.Calc(
+			input[i].latitude, 
+			input[i].longitude, 
+			input[i].dusk, 
+			input[i].year, 
+			input[i].month, 
+			input[i].day
+		)
         
-        // print results
-        if err == nil {
+		// print results
+		if err == nil {
 			fmt.Println("Sunrise:", sunrise.Format("15:04:05"))
 			fmt.Println("Sunset:", sunset.Format("15:04:05"))
-        } else {
-            fmt.Println(err)
+		} else {
+			fmt.Println(err)
 		}	
     
-    	// separated calculations
+		// separated calculations
         
-    	// sunrise, err := twilight.CalcRise(
-        //    input[i].latitude, 
-        //    input[i].longitude, 
-        //    input[i].dusk, 
-        //    input[i].year, 
-        //    input[i].month, 
-        //    input[i].day
-        // )        
-        // if err == nil {
-        //    fmt.Println("Sunrise:", sunrise.Format("15:04:05"))
-        // } else {
-        //    fmt.Println(err)
+		// sunrise, err := twilight.CalcRise(
+		//    input[i].latitude, 
+		//    input[i].longitude, 
+		//    input[i].dusk, 
+		//    input[i].year, 
+		//    input[i].month, 
+		//    input[i].day
+		// )        
+		// if err == nil {
+		//    fmt.Println("Sunrise:", sunrise.Format("15:04:05"))
+		// } else {
+		//    fmt.Println(err)
 		// }
         
-        // sunset, err := twilight.CalcSet(
-        //    input[i].latitude, 
-        //    input[i].longitude, 
-        //    input[i].dusk, 
-        //    input[i].year, 
-        //    input[i].month, 
-        //    input[i].day
-        // )        
-        // if err == nil {
-        //    fmt.Println("Sunset:", sunset.Format("15:04:05"))
-        // } else {
-        //    fmt.Println(err)
+		// sunset, err := twilight.CalcSet(
+		//    input[i].latitude, 
+		//    input[i].longitude, 
+		//    input[i].dusk, 
+		//    input[i].year, 
+		//    input[i].month, 
+		//    input[i].day
+		// )        
+		// if err == nil {
+		//    fmt.Println("Sunset:", sunset.Format("15:04:05"))
+		// } else {
+		//    fmt.Println(err)
 		// }
 	}
 
