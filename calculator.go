@@ -172,9 +172,12 @@ func Calc(latitute, longitude float64, dusk DuskType, year, month, day int) (fro
 	// fmt.Println("UTRise:", UTRise, dusk)
 
 	h, s := math.Modf(UTRise)
-	from = time.Date(year, time.Month(month), day, int(h), int(math.Round(s*60)), 0, 0, time.UTC)
+	_, sec := math.Modf(s*60)
+	from = time.Date(year, time.Month(month), day, int(h), int(math.Round(s*60)), int(math.Round(sec*60)), 0, time.UTC)
+
 	h, s = math.Modf(UTSet)
-	to = time.Date(year, time.Month(month), day, int(h), int(math.Round(s*60)), 0, 0, time.UTC)
+	_, sec = math.Modf(s*60)
+	to = time.Date(year, time.Month(month), day, int(h), int(math.Round(s*60)), int(math.Round(sec*60)), 0, time.UTC)
 
 	// 10. convert to local time zone of latitude/longitude
 	// localT = UT + localOffset
